@@ -1,17 +1,23 @@
-const home = document.getElementById('home')
-const services = document.getElementById('services')
-const inclusion = document.getElementById('inclusion')
-const contacts = document.getElementById('contacts')
+var player;
 
-home.addEventListener('click', () => {
-  window.location.href = '/'
-})
-services.addEventListener('click', () => {
-  window.location.href = '/pages/services.html'
-})
-inclusion.addEventListener('click', () => {
-  window.location.href = '/pages/inclusion.html'
-})
-contacts.addEventListener('click', () => {
-  window.location.href = '/pages/contacts.html'
-})
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('youtube-video');
+}
+
+function playVideo() {
+  player.playVideo();
+}
+
+function pauseVideo() {
+  player.pauseVideo();
+}
+
+function stopVideo() {
+  player.stopVideo();
+}
+
+// Carregar a API do iframe do YouTube
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
